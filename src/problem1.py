@@ -34,8 +34,8 @@ import math
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_problem1a()
-    #run_test_problem1b()
-    #run_test_problem1c()
+    run_test_problem1b()
+    run_test_problem1c()
 
 
 ###############################################################################
@@ -202,7 +202,7 @@ def problem1a(m, n):
 def run_test_problem1b():
     """ Tests the   problem1b   function. """
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement this TEST function.
+    # DONE: 5. Implement this TEST function.
     #   It TESTS the  problem1b  function defined below.
     #   Include at least **   4   ** tests.  Use the usual form:
     #
@@ -219,6 +219,30 @@ def run_test_problem1b():
     print('--------------------------------------------------')
     print('Testing the   problem1b   function:')
     print('--------------------------------------------------')
+
+    # Test 1:
+    expected = 5
+    actual = problem1b(3, 5)
+    print('Test 1 expected: ', expected)
+    print('       actual: ', actual)
+
+    # Test 2:
+    expected = 1
+    actual = problem1b(2, 1)
+    print('Test 2 expected: ', expected)
+    print('       actual: ', actual)
+
+    # Test 3:
+    expected = 44
+    actual = problem1b(5, 40)
+    print('Test 3 expected: ', expected)
+    print('       actual: ', actual)
+
+    # Test 4:
+    expected = 6
+    actual = problem1b(2, 8)
+    print('Test 4 expected: ', expected)
+    print('       actual: ', actual)
 
 
 def problem1b(m, f):
@@ -238,7 +262,7 @@ def problem1b(m, f):
            since there are 44 primes between 5 and 200.
      """
     # -------------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # DONE: 6. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     ###########################################################################
@@ -251,6 +275,13 @@ def problem1b(m, f):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 to 15 minutes.
     # -------------------------------------------------------------------------
+
+    count = 0
+    for k in range((m*f) - m + 1):
+        x = is_prime(k + m)
+        if x:
+            count = count + 1
+    return count
 
 
 def run_test_problem1c():
@@ -349,6 +380,14 @@ def problem1c(n):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 to 20 minutes.
     # -------------------------------------------------------------------------
+
+    total = 1
+    for k in range(n - 1):
+        if is_prime(k + 2):
+            total = total * (k + 2)
+    x = sum_of_digits(total)
+    return x
+
 
 
 ###############################################################################

@@ -3,8 +3,8 @@ PRACTICE Exam 1, problem 3.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Valerie Galluzzi, Mark Hays, Amanda Stouder, Aaron Wilkin,
-         their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues, and Brendan Boewe.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -138,7 +138,7 @@ def problem3a(window, point, n):
         :type n:      int
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
@@ -147,6 +147,24 @@ def problem3a(window, point, n):
     #    TIME ESTIMATE:   20 to 35 minutes.
     # -------------------------------------------------------------------------
 
+
+    line = rg.Line(rg.Point(point.x, point.y), rg.Point(point.x, point.y))
+    line.thickness = 1
+    line.attach_to(window)
+    total = 1
+    x = 1
+    for k in range(n - 1):
+        line1 = rg.Line(rg.Point(point.x + 20 * k, point.y + 10 * k), rg.Point(point.x + 20 * k, point.y + 10 * k + 50))
+        if x < 13:
+            x = x + 2
+            total = total + x
+        else:
+            x = 13
+            total = total + x
+        line1.thickness = x
+        line1.attach_to(window)
+    window.render()
+    return total
 
 def run_test_problem3b():
     """ Tests the   problem3b   function. """
@@ -201,6 +219,13 @@ def problem3b(m, point1):
         :type m:      int
         :type point1: rg.Point
     """
+
+    window = rg.RoseWindow(400,650)
+    for k in range(m):
+
+    window
+    window.render()
+
     # -------------------------------------------------------------------------
     # TODO: 4. Implement and test this function.
     #          Tests have been written for you (above).

@@ -38,7 +38,7 @@ def main():
 def run_test_problem3a():
     """ Tests the   problem3a   function. """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  problem1a  function defined below.
     #   Include at least **   5   ** tests (we wrote four for you).
     # -------------------------------------------------------------------------
@@ -103,6 +103,20 @@ def run_test_problem3a():
     # Below this comment (or integrated with one of the above tests,
     # your choice), add 1 more test case of your own choosing.
     # -------------------------------------------------------------------------
+
+    # Window 4:
+    title = 'Problem 3a. Test 5: Start at (50, 50), 15 lines'
+    window3 = rg.RoseWindow(450, 300, title)
+
+    # Test 5 (it is on window 4):
+    point = rg.Point(30, 30)
+    expected = 218
+    answer = problem3a(window3, point, 20)
+    print()
+    print('Test 4 expected:', expected)
+    print('       actual:  ', answer)
+
+    window3.close_on_mouse_click()
 
 
 def problem3a(window, point, n):
@@ -222,9 +236,17 @@ def problem3b(m, point1):
 
     window = rg.RoseWindow(400,650)
     for k in range(m):
+        x = 2*k + 3
+        y = (point1.y + (k * 60) + 60)
+        y1 = (point1.y + (k * 60))
+        line = rg.Line(rg.Point(point1.x, y1), rg.Point(point1.x, y))
+        line.attach_to(window)
+        for k in range(x):
+            line1 = rg.Line(rg.Point(point1.x + 20 * k, point1.y + 10 * k), rg.Point(point1.x + 20 * k, point1.y + 10 * k + 50))
+            line1.attach_to(window)
 
-    window
     window.render()
+    window.close_on_mouse_click()
 
     # -------------------------------------------------------------------------
     # TODO: 4. Implement and test this function.
